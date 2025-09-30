@@ -2,6 +2,7 @@
 
 ## 關於項目
 
+https://vimeo.com/channels/avlab
 Audiovisual experiment plan is digital artist aluan wang's two year creative project. Between 2013 and 2015, he plans to produce approximately 30 audiovisual experiments, each demonstrating different relations between sound and image. His creative tool for the project is open-source software, Pure data.
 
 Since 2023, avlab has been gradually converted to JavaScript frontend versions, using modern web technologies to re-implement these audiovisual experiments, allowing more people to experience these creative works through browsers.

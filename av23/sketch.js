@@ -58,6 +58,47 @@ function setup() {
   });
 	document.body.style.backgroundColor=bgColor[synthType];
 	background(bgColor[synthType]);
+	
+	// 顯示 loading 訊息
+	document.getElementById('loading').style.display = 'block';
+	
+	// 延遲顯示啟動訊息
+	setTimeout(() => {
+		document.getElementById('loading').style.display = 'none';
+		document.getElementById('start').style.opacity = '1';
+	}, 2000);
+	
+	// 添加點擊事件監聽器
+	document.getElementById('start').addEventListener('click', function() {
+		// 隱藏啟動訊息
+		document.getElementById('start').style.opacity = '0';
+		
+		// 啟動音頻上下文
+		if (Tone.context.state !== 'running') {
+			Tone.context.resume().then(() => {
+				console.log("AudioContext started successfully");
+			}).catch((error) => {
+				console.error("AudioContext start failed:", error);
+			});
+		}
+	});
+	
+	// 也支援觸控事件
+	document.getElementById('start').addEventListener('touchstart', function(e) {
+		e.preventDefault();
+		// 隱藏啟動訊息
+		document.getElementById('start').style.opacity = '0';
+		
+		// 啟動音頻上下文
+		if (Tone.context.state !== 'running') {
+			Tone.context.resume().then(() => {
+				console.log("AudioContext started successfully");
+			}).catch((error) => {
+				console.error("AudioContext start failed:", error);
+			});
+		}
+	});
+	
 	noLoop();
 }
 

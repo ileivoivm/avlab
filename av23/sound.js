@@ -163,8 +163,14 @@ function touchStarted() {
 	if (selectWho >= 0) console.log(selectWho);
 	touchstarted = true;
 	touchended = false;
+	
+	// iOS 音頻啟動處理
 	if (Tone.context.state !== 'running') {
-		Tone.context.resume();
+		Tone.context.resume().then(() => {
+			console.log("AudioContext started successfully");
+		}).catch((error) => {
+			console.error("AudioContext start failed:", error);
+		});
 	}
 	go = true;
 
@@ -197,8 +203,14 @@ function mousePressed() {
 	if (selectWho >= 0) console.log(selectWho);
 	touchstarted = true;
 	touchended = false;
+	
+	// iOS 音頻啟動處理
 	if (Tone.context.state !== 'running') {
-		Tone.context.resume();
+		Tone.context.resume().then(() => {
+			console.log("AudioContext started successfully");
+		}).catch((error) => {
+			console.error("AudioContext start failed:", error);
+		});
 	}
 	go = true;
 
@@ -224,7 +236,11 @@ function mouseReleased() {
 document.documentElement.addEventListener("mousedown", function() {
 	mouse_IsDown = true;
 	if (Tone.context.state !== 'running') {
-		Tone.context.resume();
+		Tone.context.resume().then(() => {
+			console.log("AudioContext started successfully");
+		}).catch((error) => {
+			console.error("AudioContext start failed:", error);
+		});
 	}
 })
 

@@ -83,11 +83,40 @@ function setup() {
     passive: false
   });
   
-  // 使用 StartAudioContext 库来正确处理 AudioContext 启动
-  StartAudioContext(Tone.context, document.body, function() {
-    console.log("AudioContext started successfully");
-    // 音频上下文启动后初始化音频对象
-    initializeAudio();
+  // 顯示 loading 訊息
+  document.getElementById('loading').style.display = 'block';
+  
+  // 延遲顯示啟動訊息
+  setTimeout(() => {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('start').style.opacity = '1';
+  }, 2000);
+  
+  // 添加點擊事件監聽器
+  document.getElementById('start').addEventListener('click', function() {
+    // 隱藏啟動訊息
+    document.getElementById('start').style.opacity = '0';
+    
+    // 使用 StartAudioContext 库来正确处理 AudioContext 启动
+    StartAudioContext(Tone.context, document.body, function() {
+      console.log("AudioContext started successfully");
+      // 音频上下文启动后初始化音频对象
+      initializeAudio();
+    });
+  });
+  
+  // 也支援觸控事件
+  document.getElementById('start').addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    // 隱藏啟動訊息
+    document.getElementById('start').style.opacity = '0';
+    
+    // 使用 StartAudioContext 库来正确处理 AudioContext 启动
+    StartAudioContext(Tone.context, document.body, function() {
+      console.log("AudioContext started successfully");
+      // 音频上下文启动后初始化音频对象
+      initializeAudio();
+    });
   });
 }
 
