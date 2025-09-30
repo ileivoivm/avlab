@@ -61,12 +61,18 @@ function setup() {
 	
 	// 顯示 loading 訊息
 	document.getElementById('loading').style.display = 'block';
+	document.getElementById('loading').style.opacity = '1';
 	
 	// 延遲顯示啟動訊息
 	setTimeout(() => {
 		document.getElementById('loading').style.display = 'none';
 		document.getElementById('start').style.opacity = '1';
 	}, 2000);
+	
+	// 確保在手機模式下也能正確顯示
+	if (isMobile) {
+		console.log("Mobile device detected, loading message should be visible");
+	}
 	
 	// 添加點擊事件監聽器
 	document.getElementById('start').addEventListener('click', function() {
@@ -104,6 +110,10 @@ function setup() {
 
 
 function draw() {
+  // 檢查是否還在 loading 階段
+  if (document.getElementById('loading').style.display !== 'none') {
+    return; // 如果還在 loading，不執行任何繪製
+  }
 
   if (go) count = (count + 1) % totalCount;
   // console.log(count);
