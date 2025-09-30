@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV Lab - 音頻視覺實驗室</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AV Lab</h1>
+        <p class="subtitle">音頻視覺實驗室 - 探索聲音與視覺的無限可能</p>
+        
+        <div class="projects">
+            <a href="av11/" class="project-card">
+                <span class="project-icon">🥁</span>
+                <h2 class="project-title">AV11 - 鼓機實驗</h2>
+                <p class="project-description">
+                    互動式鼓機應用，結合 p5.js 和 Tone.js 創造動態的節拍體驗。
+                    探索節奏、音效與視覺效果的完美融合。
+                </p>
+            </a>
+            
+            <a href="av23/" class="project-card">
+                <span class="project-icon">🎨</span>
+                <h2 class="project-title">AV23 - 生成藝術</h2>
+                <p class="project-description">
+                    基於演算法的生成藝術作品，結合程式碼與創意。
+                    每一次載入都是獨一無二的視覺體驗。
+                </p>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 AV Lab - 持續探索音頻與視覺的邊界</p>
+        </div>
+    </div>
+</body>
+</html>
