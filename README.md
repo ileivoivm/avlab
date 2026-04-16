@@ -11,19 +11,25 @@ Since 2023, avlab has been gradually converted to JavaScript frontend versions, 
 
 自2023年後，avlab 將逐一改為 JavaScript 前端版本，使用現代 Web 技術重新實現這些音頻視覺實驗，讓更多人可以透過瀏覽器體驗這些創意作品。
 
-## 項目結構
+## 項目結��
 
 ```
 avlab/
 ├── index.html          # 主頁面
-├── README.md           # 項目說明
-├── av11/              # 鼓機實驗
-│   ├── index.html
+├─��� README.md           # 項目說明
+├── av11/              # 鼓機實��
+│   ├��─ index.html
 │   ├── sketch.js
-│   ├── DrumDrum.js
+│   ├���─ DrumDrum.js
 │   ├── sound files...
 │   └── style.css
-└── av23/              # 生成藝術
+├── av17/              # 行星繪圖
+│   ├── index.html
+│   ├── sketch.js
+│   ├── Circle.js
+│   ├── dot.png
+│   └─�� style.css
+└── av23/              # 序列機
     ├── index.html
     ├── sketch.js
     ├── sound.js
@@ -34,13 +40,18 @@ avlab/
 
 ### AV11 - 鼓機實驗
 - **技術棧**: p5.js, Tone.js
-- **特色**: 互動式鼓機應用，結合節拍與視覺效果
+- **特色**: 互動式鼓機應用，結合節拍與視覺��果
 - **檔案**: 包含多個音效檔案 (BD.wav, CHH.wav, CLAP.wav, OHH.wav, SD.wav)
+
+### AV17 - 行���繪圖
+- **��術棧**: p5.js, Tone.js
+- **特色**: 在螢幕上拖曳繪製行星軌道，每個行星產生不同頻率的聲音
+- **功能**: 行星沿軌道旋轉並即時改變音高與音量
 
 ### AV23 - 序列機
 - **技術棧**: p5.js, Tone.js, fxhash
-- **特色**: 互動式音樂序列機，支援多種合成器
-- **功能**: 可調整音符序列、節拍、音量和持續時間
+- **特��**: 互動式音���序列機，支援多種合成器
+- **功能**: 可調整音符��列、節拍、音量和持續時間
 
 ## 技術特色
 
