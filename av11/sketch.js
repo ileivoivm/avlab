@@ -52,8 +52,12 @@ function initializeAudio() {
       "url": "CHH.wav",
       "autostart": false,
     }).toDestination();
-    
-    audioInitialized = true;
+
+    // 等所有音檔載入完成才啟用
+    Tone.loaded().then(() => {
+      console.log("All audio files loaded");
+      audioInitialized = true;
+    });
   }
 }
 
@@ -98,31 +102,26 @@ function setup() {
     console.log("Mobile device detected, loading message should be visible");
   }
   
-  // 添加點擊事件監聽器
-  document.getElementById('start').addEventListener('click', function() {
-    // 隱藏啟動訊息
-    document.getElementById('start').style.opacity = '0';
-    
-    // 使用 StartAudioContext 库来正确处理 AudioContext 启动
+  // 點擊啟動：先顯示載入中，等音檔全部就緒才隱藏
+  function handleStart() {
+    var startEl = document.getElementById('start');
+    startEl.textContent = '載入音檔中…';
+    startEl.style.pointerEvents = 'none';
+
     StartAudioContext(Tone.context, document.body, function() {
       console.log("AudioContext started successfully");
-      // 音频上下文启动后初始化音频对象
       initializeAudio();
+      // 等 Tone.loaded() 在 initializeAudio 裡完成後才隱藏
+      Tone.loaded().then(() => {
+        startEl.style.opacity = '0';
+      });
     });
-  });
-  
-  // 也支援觸控事件
+  }
+
+  document.getElementById('start').addEventListener('click', handleStart);
   document.getElementById('start').addEventListener('touchstart', function(e) {
     e.preventDefault();
-    // 隱藏啟動訊息
-    document.getElementById('start').style.opacity = '0';
-    
-    // 使用 StartAudioContext 库来正确处理 AudioContext 启动
-    StartAudioContext(Tone.context, document.body, function() {
-      console.log("AudioContext started successfully");
-      // 音频上下文启动后初始化音频对象
-      initializeAudio();
-    });
+    handleStart();
   });
 }
 

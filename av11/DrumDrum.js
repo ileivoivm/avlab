@@ -28,12 +28,12 @@ class Seqs {
 
   sound() {
     this.sel = timeCount % this.seq;
-    // 检查音频对象是否已初始化，避免 undefined 错误
-    if (this.id == 1 && this.seq > 0 && this.sel == 0 && typeof m0 !== 'undefined') m0.start();
-    if (this.id == 2 && this.seq > 0 && this.sel == 0 && typeof m1 !== 'undefined') m1.start();
-    if (this.id == 3 && this.seq > 0 && this.sel == 0 && typeof m2 !== 'undefined') m2.start();
-    if (this.id == 4 && this.seq > 0 && this.sel == 0 && typeof m3 !== 'undefined') m3.start();
-    if (this.id == 5 && this.seq > 0 && this.sel == 0 && typeof m4 !== 'undefined') m4.start();
+    if (!audioInitialized) return;
+    if (this.id == 1 && this.seq > 0 && this.sel == 0 && m0.loaded) m0.start();
+    if (this.id == 2 && this.seq > 0 && this.sel == 0 && m1.loaded) m1.start();
+    if (this.id == 3 && this.seq > 0 && this.sel == 0 && m2.loaded) m2.start();
+    if (this.id == 4 && this.seq > 0 && this.sel == 0 && m3.loaded) m3.start();
+    if (this.id == 5 && this.seq > 0 && this.sel == 0 && m4.loaded) m4.start();
     if (this.seq > 0 && this.sel == 0) ani[this.id].reset();
   }
   change() {
